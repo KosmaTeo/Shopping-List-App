@@ -41,7 +41,7 @@ button { background-color: transparent; color: #ffffff; font-size: 1.1rem;}
     margin-bottom: 30px;
 }
 
-.main_heading {
+.mainHeading {
     margin: 142px 0 30px 0;
     font-size: 2.5rem;
     text-shadow: 0 0 5px #000000;
@@ -49,13 +49,13 @@ button { background-color: transparent; color: #ffffff; font-size: 1.1rem;}
 
 h6 {text-shadow: 0 0 5px #000000; margin-bottom: 10px;}
 
-.enter_box {
+.enterBox {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.user_input {
+.userInput {
     border: none;
     border-radius: 18px;
     padding: 10px;
@@ -65,7 +65,7 @@ h6 {text-shadow: 0 0 5px #000000; margin-bottom: 10px;}
 
 }
 
-.btn_add {
+.enter {
     padding: 10px;
     min-width: 42px;
     color: #ffffff;
@@ -90,7 +90,7 @@ h6 {text-shadow: 0 0 5px #000000; margin-bottom: 10px;}
     border-radius: 18px;
 }
 
-.list_item {
+.listItem {
     position: relative;
     overflow: hidden;
     line-height: 35px;
@@ -100,13 +100,12 @@ h6 {text-shadow: 0 0 5px #000000; margin-bottom: 10px;}
     border-radius: 18px;
     background-color: rgba(255,255,255, 0.2);
     transition: .1s all;
-} .list_item:first-child {margin-top: 0;} .list_item:last-child {margin-bottom: 0;} .list_item:hover {background-color: rgba(255,255,255, 0.4);}
+} .listItem:first-child {margin-top: 0;} 
+.listItem:last-child {margin-bottom: 0;} 
+.listItem:hover {background-color: rgba(255,255,255, 0.4);}
 
-.btn_delete {
-    background-color: #dc172a;
-}
 
-.js_checked_btn {
+.js_checkedBtn {
     position: absolute;
     top: 0;
     left: 0;
@@ -115,9 +114,9 @@ h6 {text-shadow: 0 0 5px #000000; margin-bottom: 10px;}
     border-radius: 50%;
     border: 1px solid rgba(255,255,255, 0.3);
     transition: all .2s;
-} .js_checked_btn:hover {cursor: pointer; background-color: #00cc00; border-color: #ffffff;}
+} .js_checkedBtn:hover {cursor: pointer; background-color: #00cc00; border-color: #ffffff;}
 
-.js_delete_btn {
+.js_deleteBtn {
     position: absolute;
     top: 0;
     right: 0;
@@ -126,21 +125,20 @@ h6 {text-shadow: 0 0 5px #000000; margin-bottom: 10px;}
     border-radius: 50%;
     border: 1px solid rgba(255,255,255, 0.3);
     transition: all .2s;
-} .js_delete_btn:hover { cursor: pointer; background-color: #cc0000; border-color: #ffffff;}
+} .js_deleteBtn:hover { cursor: pointer; background-color: #cc0000; border-color: #ffffff;}
 
-.js_list_item_done {
+.js_makeDoneClass {
     background-color: rgba(0,255,0,0.5); 
     box-shadow: 0 0 20px 1px black;
     transition: .2s all; 
-} .js_list_item_done:hover {background-color: rgba(0,255,0,0.7);}
-
+} .js_makeDoneClass:hover {background-color: rgba(0,255,0,0.7);}
 
 
 
 @media only screen and (max-width: 340px) {
     
     .main {padding: 10px 0 20px 0; width: 100%; border-radius: 0;}
-    .enter_box {padding: 10px;}
-    .list_item {width: 90%;}
+    .enterBox {padding: 10px;}
+    .listItem {width: 90%;}
 }
 

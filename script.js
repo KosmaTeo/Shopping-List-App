@@ -1,68 +1,79 @@
-var add_button = document.getElementById("btn_add");
-var user_input = document.getElementById("user_input");
-var list = document.getElementById("list");
+var button = document.getElementById("enter");
+var input = document.getElementById("userInput");
+var ul = document.querySelector(".list");
 
+function inputLength() {
+	return input.value.length;
+}
 
-function itemDone (event) {
-    event.target.parentElement.classList.toggle("js_list_item_done");
-    event.target.classList.toggle("js_list_item_done");
+function addListAfterClick() {
+	if (inputLength() > 0) {
+		createListElement();
+	};
 };
 
-function itemDelete (event) {
-    event.target.removeEventListener("click", itemDelete);
-    event.target.removeEventListener("click", itemDone);
-    event.target.parentElement.remove();
+function addListAfterKeypress(event) {
+	if (inputLength() > 0 && event.keyCode === 13) {
+		createListElement();
+	};
 };
 
+button.addEventListener("click", addListAfterClick);
+input.addEventListener("keypress", addListAfterKeypress);
 
 
-function addCheckedBtn (container) {
-    var checkedBtn = document.createElement("button");
-        checkedBtn.classList.add("js_checked_btn", "fa", "fa-check");
-            container.appendChild(checkedBtn);
+function createListElement() {
+	var li = document.createElement("li");
     
-    checkedBtn.addEventListener("click", itemDone);
-    // weird thing is: when I added icon inside button with .innerHTML method using <i> tag , the event argument didn't propagate to the parent button so the function didn't worked when clicked on icon, but when clicked under the icon (still on the button) it worked. This problem occured in the newest Chrome, but not in Mozilla and IE, where clicked <i> inside button passed the argument to the parent. When I deleted <i> and just added icon classes to button it worked on Mozilla and Chrome. IE also worked, but it didn't showed the icons.
-};
-
-function addDeleteBtn (container) {
-    var deleteBtn = document.createElement("button");
-        deleteBtn.classList.add("js_delete_btn", "fa", "fa-times");
-            container.appendChild(deleteBtn);
+    //creating 2 buttons
+	var doneButton = document.createElement("button");
+	var deleteButton = document.createElement("button");
     
-        deleteBtn.addEventListener("click", itemDelete);
+    // adding classes
+    doneButton.classList.add("js_checkedBtn", "fa", "fa-check");
+    deleteButton.classList.add("js_deleteBtn", "fa", "fa-times");
+
+    // filling li
+    li.appendChild(doneButton);
+	li.appendChild(document.createTextNode(input.value));
+    li.appendChild(deleteButton);
+    li.classList.add("listItem");
+    
+    //add li to ul
+	ul.appendChild(li);
+	input.value = ""; // clearing input
+    
+    doneButton.addEventListener("click", makeDone);
+    deleteButton.addEventListener("click", makeDelete);
 };
 
+function makeDone(){ 
+this.parentNode.classList.toggle("js_makeDoneClass");
+};
 
-function createListItem() {
-    if (user_input.value.length > 0) {
-          var listItem = document.createElement("li");
-            listItem.appendChild(document.createTextNode(user_input.value));
-                user_input.value = '';
-                    listItem.classList.add("list_item");
-                        list.appendChild(listItem);
+function makeDelete(){ 
+this.parentElement.remove();
+};
+
+function addBtnToExistLi() {
+    for(var i = 0; i < ul.children.length;i++) {
+        var li = ul.children[i];
+        var liValue = document.createTextNode(ul.children[i].innerHTML);
+        li.innerHTML = "";
         
-            addCheckedBtn(listItem);
-            addDeleteBtn(listItem);
-    };};
-
-function createListItemPress(e) {
-    if (e.which === 13) {
-        createListItem();
-    };};
-
-
-function addToExistingItems () {
-    var len = list.children.length;
-    
-        for (var i = 0; i < len; i++) {
-            var listItem = list.children[i];      
-        addCheckedBtn(listItem);
-        addDeleteBtn(listItem);
-    };};
-
-addToExistingItems();
-add_button.addEventListener("click", createListItem);
-user_input.addEventListener("keypress", createListItemPress);
-
+        //creating 2 buttons
+        var doneButton = document.createElement("button");
+        var deleteButton = document.createElement("button");
+        doneButton.classList.add("js_checkedBtn", "fa", "fa-check");
+        deleteButton.classList.add("js_deleteBtn", "fa", "fa-times");
+        
+    // filling the existing Li
+    li.appendChild(doneButton);
+    li.appendChild(liValue);
+    li.appendChild(deleteButton);
+        
+    doneButton.addEventListener("click", makeDone);
+    deleteButton.addEventListener("click", makeDelete);
+    };
+}; addBtnToExistLi();
 
