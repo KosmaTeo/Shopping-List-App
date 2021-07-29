@@ -1,0 +1,144 @@
+html, body {
+    font-family: 'Maven Pro', sans-serif;
+    height: 100%;
+    margin: 0;
+    font-size: 100%;
+    color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button { background-color: transparent; color: #ffffff; font-size: 1.1rem;}
+
+.wrapper {
+    background-color: #402fb8;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    background-image:
+    linear-gradient( 45deg, #6d0188 40%, #ff5c00);
+}
+
+.main {
+    min-height: 350px;
+    background-color: #0987e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 2px #000000;
+    background-image:
+    linear-gradient( 45deg, #dd3a00, #6d0188 90%);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.mainHeading {
+    margin: 142px 0 30px 0;
+    font-size: 2.5rem;
+    text-shadow: 0 0 5px #000000;
+}
+
+h6 {text-shadow: 0 0 5px #000000; margin-bottom: 10px;}
+
+.enterBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userInput {
+    border: none;
+    border-radius: 18px;
+    padding: 10px;
+    width: 100%;
+    margin-right: 30px;
+    box-shadow: 0 0 30px 2px #000000;
+
+}
+
+.enter {
+    padding: 10px;
+    min-width: 42px;
+    color: #ffffff;
+    border: none;
+    border-radius: 18px;
+    background-color: #18ae88;
+    box-shadow: 0 0 30px 2px #000000;
+    transition: .2s all;
+    cursor: pointer;
+
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 280px;
+    max-width: 280px;
+    list-style-type: none;
+    margin-top: 30px;
+    border-radius: 18px;
+}
+
+.listItem {
+    position: relative;
+    overflow: hidden;
+    line-height: 35px;
+    margin: 5px;
+    width: 100%;
+    min-height: 37px;
+    border-radius: 18px;
+    background-color: rgba(255,255,255, 0.2);
+    transition: .1s all;
+} .listItem:first-child {margin-top: 0;} 
+.listItem:last-child {margin-bottom: 0;} 
+.listItem:hover {background-color: rgba(255,255,255, 0.4);}
+
+
+.js_checkedBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255, 0.3);
+    transition: all .2s;
+} .js_checkedBtn:hover {cursor: pointer; background-color: #00cc00; border-color: #ffffff;}
+
+.js_deleteBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255, 0.3);
+    transition: all .2s;
+} .js_deleteBtn:hover { cursor: pointer; background-color: #cc0000; border-color: #ffffff;}
+
+.js_makeDoneClass {
+    background-color: rgba(0,255,0,0.5); 
+    box-shadow: 0 0 20px 1px black;
+    transition: .2s all; 
+} .js_makeDoneClass:hover {background-color: rgba(0,255,0,0.7);}
+
+
+
+@media only screen and (max-width: 340px) {
+    
+    .main {padding: 10px 0 20px 0; width: 100%; border-radius: 0;}
+    .enterBox {padding: 10px;}
+    .listItem {width: 90%;}
+}
+
